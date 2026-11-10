@@ -1,6 +1,6 @@
 # SchoolSims Player
 
-An interactive bilingual simulation platform for leadership training. Learners navigate a realistic workplace scenario across 7 slides — from context and video to a branching decision — in **English or Spanish**, with **5 selectable character ethnicities**. Designed for colleges and corporate L&D teams.
+An interactive multilingual simulation platform for leadership training. Learners navigate a realistic workplace scenario across 7 slides — from context and video to a branching decision — in **7 languages**, with **5 selectable character ethnicities**. Designed for colleges and corporate L&D teams.
 
 ---
 
@@ -15,7 +15,7 @@ An interactive bilingual simulation platform for leadership training. Learners n
 ## Features
 
 - **7-slide branching scenario** — context, text+image, video, decision (A/B), outcome, summary
-- **Bilingual** — English and Spanish; content and UI fully localized
+- **7 languages** — English, Spanish, Arabic, Chinese, Nepali, Swahili, Urdu; content and UI fully localized
 - **5 character ethnicities** — African, Caucasian, East Asian, Latin, South Asian (photo + video only; no effect on scenario text or outcomes)
 - **Text-to-speech** — optional ElevenLabs integration with file-based caching; falls back silently when no key is set
 - **Post-simulation review** — star rating + open feedback form, stored server-side
@@ -136,7 +136,7 @@ FastAPI serves the built frontend and all assets from a single process. Open **h
 Setup → 1 Context → 2 Text+Image → 3 Video → 4 Decision → 5A/5B Outcome → 6 Summary → Restart
 ```
 
-- **Language** (`lang`): `en` or `es` — localizes all text, UI labels, and video
+- **Language** (`lang`): `en`, `es`, `ar`, `zh`, `ne`, `sw`, `ur` — localizes all text, UI labels, and video
 - **Ethnicity** (`ethnicity`): `african`, `caucasian`, `east_asian`, `latin`, `south_asian` — changes character photo and video only; no effect on scenario text, role, or outcomes
 - **Decision**: Option A commits to the deadline; Option B proposes a phased pilot. The summary reflects whichever path was chosen.
 
@@ -150,7 +150,8 @@ All slide content lives in `backend/scenario.json` as a linked graph keyed by la
 {
   "start_node_id": "context",
   "en": { "nodes": { "context": {...}, "decision": {...}, ... }, "ui": {...} },
-  "es": { "nodes": { ... }, "ui": {...} }
+  "es": { "nodes": { ... }, "ui": {...} },
+  "ar": { ... }, "zh": { ... }, "ne": { ... }, "sw": { ... }, "ur": { ... }
 }
 ```
 
