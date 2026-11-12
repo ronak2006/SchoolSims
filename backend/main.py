@@ -4,7 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
 from typing import Any
-import json, copy
+import json, copy, datetime
 from dotenv import load_dotenv
 from tts import get_or_generate, CACHE_DIR
 
@@ -68,8 +68,8 @@ def get_options(lang: str = Query("en")):
 
 @app.get("/api/simulation")
 def get_simulation(
-    lang: str = Query(..., description="en or es"),
-    ethnicity: str = Query(..., description="black or east_asian"),
+    lang: str = Query(..., description="Language code"),
+    ethnicity: str = Query(..., description="Ethnicity code"),
 ):
     if lang not in VALID_LANGS:
         raise HTTPException(400, detail=f"lang must be one of {sorted(VALID_LANGS)}")
@@ -146,7 +146,6 @@ class ReviewPayload(BaseModel):
 def submit_review(body: ReviewPayload):
     if body.rating < 1 or body.rating > 5:
         raise HTTPException(400, detail="rating must be 1-5")
-    import datetime
     entry = body.model_dump()
     entry["timestamp"] = datetime.datetime.utcnow().isoformat()
     reviews_path = BASE_DIR / "reviews.json"
