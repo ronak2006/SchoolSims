@@ -6,8 +6,6 @@ interface Props {
   node: SummaryNode;
   chosenNode: OutcomeNode | null;
   optionLabel: string;
-  restartLabel: string;
-  onRestart: () => void;
   audioUrl: string | null;
   speechEnabled: boolean;
   lang: string;
@@ -22,7 +20,7 @@ interface Props {
 }
 
 export default function SummarySlide({
-  node, chosenNode, optionLabel, restartLabel, onRestart,
+  node, chosenNode, optionLabel,
   audioUrl, speechEnabled,
   lang, ethnicity, chosenId,
   reviewTitle, reviewRatingLabel, reviewExperienceLabel,
