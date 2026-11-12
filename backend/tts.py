@@ -31,8 +31,14 @@ def get_or_generate(text: str, lang: str = "en") -> str | None:
             model_id=model_id,
             voice_settings={"stability": 0.5, "similarity_boost": 0.75},
         )
-        with open(path, "wb") as f:
-            for chunk in audio:
-                f.write(chunk)
+        tmp = path.with_suffix(".tmp")
+        try:
+            with open(tmp, "wb") as f:
+                for chunk in audio:
+                    f.write(chunk)
+            tmp.rename(path)
+        except Exception:
+            tmp.unlink(missing_ok=True)
+            raise
 
     return f"{key}.mp3"

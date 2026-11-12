@@ -1,0 +1,38 @@
+[
+  {
+    "rating": 3,
+    "experience": "Great simulation, very realistic scenario.",
+    "improvements": "Add more decision branches.",
+    "lang": "en",
+    "ethnicity": "african",
+    "chosen_option": "A",
+    "timestamp": "2026-11-08T09:55:16.200748"
+  },
+  {
+    "rating": 4,
+    "experience": "Good",
+    "improvements": "Very Good",
+    "lang": "en",
+    "ethnicity": "african",
+    "chosen_option": "B",
+    "timestamp": "2026-11-08T10:22:32.484663"
+  },
+  {
+    "rating": 1,
+    "experience": "ok",
+    "improvements": "no",
+    "lang": "en",
+    "ethnicity": "african",
+    "chosen_option": "A",
+    "timestamp": "2026-11-08T14:02:38.866764"
+  },
+  {
+    "rating": 2,
+    "experience": "test!",
+    "improvements": "hello!!",
+    "lang": "en",
+    "ethnicity": "african",
+    "chosen_option": "A",
+    "timestamp": "2026-11-08T14:09:52.528857"
+  }
+]
